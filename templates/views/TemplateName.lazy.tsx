@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react';
 
-const LazyTest = React.lazy(() => import('./TemplateName'));
+const LazyTemplateName = React.lazy(() => import('./TemplateName'));
 
 const TemplateName = (props: JSX.IntrinsicAttributes & { children?: React.ReactNode; }) => (
   <Suspense fallback={null}>
-    <LazyTest {...props} />
+    <LazyTemplateName {...props} />
   </Suspense>
 );
 TemplateName.displayName = 'TemplateName Lazy Loaded';
