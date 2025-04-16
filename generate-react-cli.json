@@ -1,0 +1,53 @@
+{
+  "usesTypeScript": true,
+  "usesStyledComponents": true,
+  "component": {
+    "default": {
+      "path": "src/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": false,
+      "withIndex": true,
+      "customTemplates": {
+        "index": "templates/default/index.tsx",
+        "component": "templates/component/TemplateName.tsx",
+        "story": "templates/component/TemplateName.story.tsx",
+        "style": "templates/component/TemplateName.styled.tsx",
+        "test": "templates/component/TemplateName.test.tsx"
+      }
+    },
+    "view": {
+      "path": "src/views",
+      "withStyle": true,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": true,
+      "withIndex": true,
+      "customTemplates": {
+        "index": "templates/default/index.tsx",
+        "component": "templates/component/TemplateName.tsx",
+        "lazy": "templates/component/TemplateName.lazy.tsx",
+        "story": "templates/component/TemplateName.story.tsx",
+        "style": "templates/component/TemplateName.style.css",
+        "test": "templates/component/TemplateName.test.tsx"
+      }
+    },
+    "container": {
+      "path": "src/containers",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": true,
+      "withIndex": true,
+      "customTemplates": {
+        "index": "templates/default/index.js",
+        "component": "templates/component/TemplateName.jsx",
+        "lazy": "templates/component/TemplateName.lazy.jsx",
+        "story": "templates/component/TemplateName.story.jsx",
+        "style": "templates/component/TemplateName.style.css",
+        "test": "templates/component/TemplateName.test.jsx"
+      }
+    }
+  }
+}
