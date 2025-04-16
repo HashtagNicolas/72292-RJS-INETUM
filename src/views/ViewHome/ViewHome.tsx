@@ -1,6 +1,6 @@
 import  { FC } from 'react';
 import './ViewHome.style.css';
-import * as UI from '../../components';
+import * as UI from '@/components';
 
 interface ViewHomeProps {}
 
