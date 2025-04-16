@@ -1,8 +1,10 @@
+import ViewHome from "./views/ViewHome"
 
 function App() {
 
   return (
     <>
+      <ViewHome />
     </>
   )
 }
