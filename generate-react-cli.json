@@ -12,7 +12,7 @@
       "customTemplates": {
         "index": "templates/components/index.tsx",
         "component": "templates/components/TemplateName.tsx",
-        "story": "templates/components/TemplateName.story.tsx",
+        "story": "templates/components/TemplateName.stories.tsx",
         "style": "templates/components/TemplateName.styled.tsx",
         "test": "templates/components/TemplateName.test.tsx"
       }
@@ -28,7 +28,7 @@
         "index": "templates/views/index.tsx",
         "component": "templates/views/TemplateName.tsx",
         "lazy": "templates/views/TemplateName.lazy.tsx",
-        "story": "templates/views/TemplateName.story.tsx",
+        "story": "templates/views/TemplateName.stories.tsx",
         "style": "templates/views/TemplateName.style.css",
         "test": "templates/views/TemplateName.test.tsx"
       }
@@ -44,10 +44,11 @@
         "index": "templates/containers/index.js",
         "component": "templates/containers/TemplateName.jsx",
         "lazy": "templates/containers/TemplateName.lazy.jsx",
-        "story": "templates/containers/TemplateName.story.jsx",
+        "story": "templates/containers/TemplateName.stories.jsx",
         "style": "templates/containers/TemplateName.style.css",
         "test": "templates/containers/TemplateName.test.jsx"
       }
     }
-  }
+  },
+  "testLibrary": "Testing Library"
 }
