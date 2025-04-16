@@ -10,11 +10,11 @@
       "withLazy": false,
       "withIndex": true,
       "customTemplates": {
-        "index": "templates/default/index.tsx",
-        "component": "templates/component/TemplateName.tsx",
-        "story": "templates/component/TemplateName.story.tsx",
-        "style": "templates/component/TemplateName.styled.tsx",
-        "test": "templates/component/TemplateName.test.tsx"
+        "index": "templates/components/index.tsx",
+        "component": "templates/components/TemplateName.tsx",
+        "story": "templates/components/TemplateName.story.tsx",
+        "style": "templates/components/TemplateName.styled.tsx",
+        "test": "templates/components/TemplateName.test.tsx"
       }
     },
     "view": {
@@ -25,12 +25,12 @@
       "withLazy": true,
       "withIndex": true,
       "customTemplates": {
-        "index": "templates/default/index.tsx",
-        "component": "templates/component/TemplateName.tsx",
-        "lazy": "templates/component/TemplateName.lazy.tsx",
-        "story": "templates/component/TemplateName.story.tsx",
-        "style": "templates/component/TemplateName.style.css",
-        "test": "templates/component/TemplateName.test.tsx"
+        "index": "templates/views/index.tsx",
+        "component": "templates/views/TemplateName.tsx",
+        "lazy": "templates/views/TemplateName.lazy.tsx",
+        "story": "templates/views/TemplateName.story.tsx",
+        "style": "templates/views/TemplateName.style.css",
+        "test": "templates/views/TemplateName.test.tsx"
       }
     },
     "container": {
@@ -41,12 +41,12 @@
       "withLazy": true,
       "withIndex": true,
       "customTemplates": {
-        "index": "templates/default/index.js",
-        "component": "templates/component/TemplateName.jsx",
-        "lazy": "templates/component/TemplateName.lazy.jsx",
-        "story": "templates/component/TemplateName.story.jsx",
-        "style": "templates/component/TemplateName.style.css",
-        "test": "templates/component/TemplateName.test.jsx"
+        "index": "templates/containers/index.js",
+        "component": "templates/containers/TemplateName.jsx",
+        "lazy": "templates/containers/TemplateName.lazy.jsx",
+        "story": "templates/containers/TemplateName.story.jsx",
+        "style": "templates/containers/TemplateName.style.css",
+        "test": "templates/containers/TemplateName.test.jsx"
       }
     }
   }
