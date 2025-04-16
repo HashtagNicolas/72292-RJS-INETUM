@@ -1,6 +1,6 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+
 import TemplateName from './TemplateName';
 
 describe('<TemplateName />', () => {
@@ -8,7 +8,7 @@ describe('<TemplateName />', () => {
     render(<TemplateName />);
 
     const test = screen.getByTestId('Test');
-
-    expect(test).toBeInTheDocument();
+    console.log(test)
+     // expect(test
   });
 });

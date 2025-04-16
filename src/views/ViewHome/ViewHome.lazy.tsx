@@ -1,6 +1,6 @@
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 
-const LazyTest = lazy(() => import('./ViewHome'));
+const LazyTest = React.lazy(() => import('./ViewHome'));
 
 const ViewHome = (props: JSX.IntrinsicAttributes & { children?: React.ReactNode; }) => (
   <Suspense fallback={null}>

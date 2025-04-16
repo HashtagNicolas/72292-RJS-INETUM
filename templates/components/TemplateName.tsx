@@ -20,6 +20,7 @@ const TemplateNameMemo = React.memo(TemplateName, (prevProps,nextProps) => {
    return true if props are equal
    return false if props are not equal
    */
+  console.log(prevProps,nextProps)
    return true;
 });
 TemplateNameMemo.displayName = 'TemplateName Memoized';
