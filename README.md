@@ -69,6 +69,10 @@ src/
 
 ### Presentation Components (`components/`)
 
+```
+npx generate-react-cli COMPONENT_NAME
+```
+
 - Composants **purs** : pas de logique métier, pas d’accès au store
 - Reçoivent **uniquement des props**
 - Facilement testables et réutilisables
@@ -92,6 +96,11 @@ export const UserCard: React.FC<Props> = ({ name, avatarUrl }) => (
 ---
 
 ### Container Components (`containers/`)
+
+
+```
+npx generate-react-cli COMPONENT_NAME --type=container
+```
 
 - Composants **connectés au store Redux**
 - Chargent les données, dispatchent des actions
@@ -125,6 +134,10 @@ export const UserListContainer: React.FC = () => {
 ---
 
 ### Views (`views/`)
+
+```
+npx generate-react-cli COMPONENT_NAME --type=view
+```
 
 - Composants de **haut niveau** représentant une page ou une route
 - Combinent les **containers** et parfois des **présentationnels**
