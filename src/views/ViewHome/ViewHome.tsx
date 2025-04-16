@@ -1,15 +1,15 @@
 import  { FC } from 'react';
 import './ViewHome.style.css';
-import { BaseButton, BaseFooter, BaseHeader } from '../../components';
+import * as UI from '../../components';
 
 interface ViewHomeProps {}
 
 const ViewHome: FC<ViewHomeProps> = () => (
  <div className="ViewHome" data-testid="ViewHome">
-    <BaseHeader />
-    <BaseButton />
+    <UI.BaseHeader />
+    <UI.BaseButton />
     ViewHome Component
-    <BaseFooter />
+    <UI.BaseFooter />
  </div>
 );
 
