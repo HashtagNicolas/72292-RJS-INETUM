@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 const windowDefined = typeof window !== 'undefined';
 
-export const useGlobalEvent = (eventName: keyof GlobalEventHandlersEventMap, callback: EventListener) => {
+export const useGlobalEvent = (eventName: keyof WindowEventMap, callback: EventListener) => {
     // 2. Utilisation de useEffect pour ajouter et supprimer l'écouteur d'événement
     useEffect(() => {
         // 3. Vérification si window existe
