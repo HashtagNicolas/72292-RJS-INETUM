@@ -71,9 +71,13 @@ class BaseHeaderClass extends Component<BaseHeaderProps> {
  * on peut utiliser le cycle de vie des composants React
  * et gérer les états locaux (d'une fonctionnalité de notification de Rendu).
 */
-const BaseHeader: FC<BaseHeaderProps> = ({ children }) => {
 
+const Time = () => {
    const time = useTime();
+   return time
+}
+
+const BaseHeader: FC<BaseHeaderProps> = ({ children }) => {
 
    useGlobalEvent( 'click', () => {
       console.log('resize event');  
@@ -86,8 +90,8 @@ const BaseHeader: FC<BaseHeaderProps> = ({ children }) => {
    }, 'ctrlKey'); 
 
    return (
-      <BaseHeaderWrapper data-testid="BaseHeader">
-         <h1>{children}</h1><h2>{time}</h2>
+      <BaseHeaderWrapper data-testid="BaseHeader" onlineStatus={onlineStatus}>
+         <h1>{children}</h1><h2><Time/></h2>
          <h3>{onlineStatus ? 'Online' : 'Offline'}</h3>
       </BaseHeaderWrapper>
    );
