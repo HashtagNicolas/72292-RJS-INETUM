@@ -83,7 +83,7 @@ const BaseHeader: FC<BaseHeaderProps> = ({ children }) => {
 
    useGlobalKeydown('Enter', () => {
       console.log('Enter key pressed');
-   }, 'ctrlKey');
+   }, 'ctrlKey'); 
 
    return (
       <BaseHeaderWrapper data-testid="BaseHeader">
