@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { Component, FC } from 'react';
 import { BaseHeaderWrapper } from './BaseHeader.styled';
 
 interface BaseHeaderProps {}
@@ -8,12 +8,26 @@ interface BaseHeaderProps {}
  * @example
  * <BaseHeader /> 
  */
-const BaseHeader: FC<BaseHeaderProps> = () => (
+class BaseHeader extends Component{
+   constructor(props: BaseHeaderProps) {
+      super(props);
+   }
+   
+   render() {
+      return (
+         <BaseHeaderWrapper data-testid="BaseHeader">
+            BaseHeader Component
+         </BaseHeaderWrapper>
+      );
+   }
+}
+
+/* const BaseHeader: FC<BaseHeaderProps> = () => (
  <BaseHeaderWrapper data-testid="BaseHeader">
     BaseHeader Component
  </BaseHeaderWrapper>
 );
-
+ */
 const BaseHeaderMemo = React.memo(BaseHeader, (prevProps,nextProps) => {
    /*
    Compare props to prevent unnecessary re-renders
