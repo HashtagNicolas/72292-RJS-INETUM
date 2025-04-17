@@ -66,16 +66,15 @@ class BaseHeaderClass extends Component<BaseHeaderProps> {
    }
 }
 
-
-const BaseHeader: FC<BaseHeaderProps> = ({children}) => {
-   /**
-    * En utilisant une fonction fléchée, 
-    * on peut utiliser le cycle de vie des composants React
-    * et gérer les états locaux (d'une fonctionnalité de notification de Rendu).
-   */
+/**
+ * En utilisant une fonction fléchée, 
+ * on peut utiliser le cycle de vie des composants React
+ * et gérer les états locaux (d'une fonctionnalité de notification de Rendu).
+*/
+const BaseHeader: FC<BaseHeaderProps> = ({ children }) => {
 
    const time = useTime();
- 
+
    return (
       <BaseHeaderWrapper data-testid="BaseHeader">
          <h1>{children}</h1><h2>{time}</h2>
