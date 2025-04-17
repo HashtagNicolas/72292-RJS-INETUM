@@ -1,4 +1,4 @@
-import React, { Component , FC } from 'react';
+import React, { Component, FC } from 'react';
 import { BaseHeaderWrapper } from './BaseHeader.styled';
 
 interface BaseHeaderProps {
@@ -65,11 +65,18 @@ class BaseHeaderClass extends Component<BaseHeaderProps> {
    }
 }
 
-const BaseHeader: FC<BaseHeaderProps> = () => (
- <BaseHeaderWrapper data-testid="BaseHeader">
-    BaseHeader Component
- </BaseHeaderWrapper>
-);
+const BaseHeader: FC<BaseHeaderProps> = () => {
+   /**
+    * En utilisant une fonction fléchée, 
+    * on peut utiliser le cycle de vie des composants React
+    * et gérer les états locaux (d'une fonctionnalité de notification de Rendu).
+   */
+   return (
+      <BaseHeaderWrapper data-testid="BaseHeader">
+         BaseHeader Component
+      </BaseHeaderWrapper>
+   );
+}
 
 const BaseHeaderMemo = React.memo(BaseHeader, (prevProps, nextProps) => {
    /*
