@@ -20,27 +20,27 @@ class BaseHeader extends Component<BaseHeaderProps> {
 
    time = this.getTime();
 
-   tick(){
+   tick() {
       this.time = this.getTime();
       console.log(this.time);
    }
 
-   getTime(){
+   getTime() {
       return (new Date()).toTimeString().split(' ')[0]
    }
 
+   interval: unknown = null;
    constructor(props: BaseHeaderProps) {
       super(props);
-      setInterval(() =>{
-         this.tick();
-         this.setState({}) // Héritée de Component
-      }, 1000);
-
    }
 
    componentDidMount(): void {
       // ComponentDidMount is called after the component is mounted
       console.log('BaseHeader mounted');
+      this.interval = setInterval(() => {
+         this.tick();
+         this.setState({}) // Héritée de Component
+      }, 1000);
    }
 
    componentDidUpdate(prevProps: Readonly<BaseHeaderProps>, prevState: Readonly<{}>, snapshot?: any): void {
@@ -53,12 +53,13 @@ class BaseHeader extends Component<BaseHeaderProps> {
    componentWillUnmount(): void {
       // ComponentWillUnmount is called before the component is unmounted
       console.log('BaseHeader unmounted');
+      clearInterval(this.interval as number);
    }
 
    render() {
       return (
          <BaseHeaderWrapper data-testid="BaseHeader">
-           <h1>{this.props.children}</h1><h2>{this.time}</h2>
+            <h1>{this.props.children}</h1><h2>{this.time}</h2>
          </BaseHeaderWrapper>
       );
    }
@@ -70,13 +71,13 @@ class BaseHeader extends Component<BaseHeaderProps> {
  </BaseHeaderWrapper>
 );
  */
-const BaseHeaderMemo = React.memo(BaseHeader, (prevProps,nextProps) => {
+const BaseHeaderMemo = React.memo(BaseHeader, (prevProps, nextProps) => {
    /*
    Compare props to prevent unnecessary re-renders
    return true if props are equal
    return false if props are not equal
    */
-  console.log(prevProps,nextProps)
+   console.log(prevProps, nextProps)
    return true;
 });
 BaseHeaderMemo.displayName = 'BaseHeader Memoized';
