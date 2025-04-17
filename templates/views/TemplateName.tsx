@@ -3,7 +3,7 @@ import  { FC } from 'react';
 
 /* Application Level Imports */
 import * as UI from '@/components';
-import * as Hooks from '@hooks';
+import * as Hooks from '@/hooks';
 
 /* Local Imports */
 import './TemplateName.style.css';

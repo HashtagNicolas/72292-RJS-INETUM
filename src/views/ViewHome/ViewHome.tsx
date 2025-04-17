@@ -1,18 +1,27 @@
+/* Global Imports */
 import  { FC } from 'react';
-import './ViewHome.style.css';
+
+/* Application Level Imports */
 import * as UI from '@/components';
+import * as Hooks from '@/hooks';
+
+/* Local Imports */
+import './ViewHome.style.css';
+
 
 interface ViewHomeProps {}
 
-const ViewHome: FC<ViewHomeProps> = () => (
- <div className="ViewHome" data-testid="ViewHome">
-    
-    <UI.BaseHeader>Home</UI.BaseHeader>
-    
-    <UI.BaseButton />
-    ViewHome Component
-    <UI.BaseFooter />
- </div>
-);
+const ViewHome: FC<ViewHomeProps> = () => {
+
+   Hooks.useDocumentTitle('ViewHome View');
+
+   return (
+   <div className="ViewHome" data-testid="ViewHome">
+      <UI.BaseHeader>ViewHome</UI.BaseHeader>
+      <UI.BaseMain> ViewHome View</UI.BaseMain>
+      <UI.BaseFooter />
+   </div>
+   )
+};
 
 export default ViewHome;

@@ -2,7 +2,7 @@
 import React, { FC } from 'react';
 
 /* Application Level Imports */
-import * as Hooks from '@hooks';
+import * as Hooks from '@/hooks';
 
 /* Local Imports */
 import { TemplateNameWrapper } from './TemplateName.styled';
