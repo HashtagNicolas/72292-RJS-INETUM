@@ -6,7 +6,9 @@ interface ViewHomeProps {}
 
 const ViewHome: FC<ViewHomeProps> = () => (
  <div className="ViewHome" data-testid="ViewHome">
-    <UI.BaseHeader />
+    
+    <UI.BaseHeader>Home</UI.BaseHeader>
+    
     <UI.BaseButton />
     ViewHome Component
     <UI.BaseFooter />
