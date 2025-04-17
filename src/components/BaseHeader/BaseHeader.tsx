@@ -1,4 +1,4 @@
-import React, { Component, FC } from 'react';
+import React, { Component, FC, useEffect } from 'react';
 import { BaseHeaderWrapper } from './BaseHeader.styled';
 
 interface BaseHeaderProps {
@@ -65,15 +65,44 @@ class BaseHeaderClass extends Component<BaseHeaderProps> {
    }
 }
 
-const BaseHeader: FC<BaseHeaderProps> = () => {
+/**
+ * @description Custom Hook to get user's local time
+ * @returns User's local time
+ * @example
+ * const time = useTime();
+ */
+const useTime = () => {
+   // Custom Hooks - permette de refactoriser le code
+   // et de réutiliser la logique
+   const [time, setTime] = React.useState(new Date().toTimeString().split(' ')[0]);
+
+   useEffect(() => {
+
+      const interval = setInterval(() => {
+         setTime(new Date().toTimeString().split(' ')[0]);
+      }, 1000);
+
+      return () => { // Cleanup function is called before the component is unmounted
+         clearInterval(interval);
+      };
+
+   }, []);
+
+   return time;
+}
+
+const BaseHeader: FC<BaseHeaderProps> = ({children}) => {
    /**
     * En utilisant une fonction fléchée, 
     * on peut utiliser le cycle de vie des composants React
     * et gérer les états locaux (d'une fonctionnalité de notification de Rendu).
    */
+
+   const time = useTime();
+ 
    return (
       <BaseHeaderWrapper data-testid="BaseHeader">
-         BaseHeader Component
+         <h1>{children}</h1><h2>{time}</h2>
       </BaseHeaderWrapper>
    );
 }
