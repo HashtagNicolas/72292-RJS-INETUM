@@ -14,6 +14,7 @@ interface ViewHomeProps {}
 const ViewHome: FC<ViewHomeProps> = () => {
 
    Hooks.useDocumentTitle('ViewHome View');
+   Hooks.useFavicon('https://www.inetum.com/themes/custom/web_ui/favicon.ico');
 
    return (
    <div className="ViewHome" data-testid="ViewHome">

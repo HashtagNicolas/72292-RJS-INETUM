@@ -10,6 +10,7 @@ export {
     useDebounce,
     useLocalStorage,
     useSessionStorage,
-    useGeolocation
+    useGeolocation,
+    useFavicon
 } from '@uidotdev/usehooks';
 
