@@ -9,15 +9,15 @@ import { useEffect } from "react";
 
 const windowDefined = typeof window !== 'undefined';
 
-export const useGlobalEvent = (eventName: string, callback: EventListener) => {
-  // 2. Utilisation de useEffect pour ajouter et supprimer l'écouteur d'événement
-  useEffect(() => {
-    // 3. Vérification si window existe
+export const useGlobalEvent = (eventName: keyof GlobalEventHandlersEventMap, callback: EventListener) => {
+    // 2. Utilisation de useEffect pour ajouter et supprimer l'écouteur d'événement
+    useEffect(() => {
+        // 3. Vérification si window existe
         windowDefined && window.addEventListener(eventName, callback);
 
-    // 4. Fonction de nettoyage pour supprimer l'écouteur d'événement
-    return () => {
-        windowDefined && window.removeEventListener(eventName, callback);
-    };
-  }, [eventName, callback]); // 5. Dépendances du hook
+        // 4. Fonction de nettoyage pour supprimer l'écouteur d'événement
+        return () => {
+            windowDefined && window.removeEventListener(eventName, callback);
+        };
+    }, [eventName, callback]); // 5. Dépendances du hook
 }

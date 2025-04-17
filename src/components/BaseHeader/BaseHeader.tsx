@@ -1,6 +1,7 @@
 import React, { Component, FC, useEffect } from 'react';
 import { BaseHeaderWrapper } from './BaseHeader.styled';
 import { useTime } from '@/hooks';
+import { useGlobalEvent } from '@/hooks';
 
 interface BaseHeaderProps {
    children: React.ReactNode;
@@ -74,6 +75,10 @@ class BaseHeaderClass extends Component<BaseHeaderProps> {
 const BaseHeader: FC<BaseHeaderProps> = ({ children }) => {
 
    const time = useTime();
+
+   useGlobalEvent( 'click', () => {
+      console.log('resize event');  
+   });
 
    return (
       <BaseHeaderWrapper data-testid="BaseHeader">
