@@ -1,4 +1,4 @@
-import React, { Component /* , FC */ } from 'react';
+import React, { Component , FC } from 'react';
 import { BaseHeaderWrapper } from './BaseHeader.styled';
 
 interface BaseHeaderProps {
@@ -10,7 +10,7 @@ interface BaseHeaderProps {
  * @example
  * <BaseHeader /> 
  */
-class BaseHeader extends Component<BaseHeaderProps> {
+class BaseHeaderClass extends Component<BaseHeaderProps> {
    /**
     * En héritant de Component, 
     * on peut utiliser le cycle de vie des composants React
@@ -65,12 +65,12 @@ class BaseHeader extends Component<BaseHeaderProps> {
    }
 }
 
-/* const BaseHeader: FC<BaseHeaderProps> = () => (
+const BaseHeader: FC<BaseHeaderProps> = () => (
  <BaseHeaderWrapper data-testid="BaseHeader">
     BaseHeader Component
  </BaseHeaderWrapper>
 );
- */
+
 const BaseHeaderMemo = React.memo(BaseHeader, (prevProps, nextProps) => {
    /*
    Compare props to prevent unnecessary re-renders
