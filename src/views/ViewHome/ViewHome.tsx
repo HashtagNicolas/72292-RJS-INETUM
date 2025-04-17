@@ -19,7 +19,14 @@ const ViewHome: FC<ViewHomeProps> = () => {
    return (
    <div className="ViewHome" data-testid="ViewHome">
       <UI.BaseHeader>ViewHome</UI.BaseHeader>
-      <UI.BaseMain> ViewHome View</UI.BaseMain>
+      <UI.BaseMain> 
+         
+         <UI.BaseButton disabled>ViewHome View</UI.BaseButton>
+         <UI.BaseButton>ViewHome View</UI.BaseButton>
+         <UI.BaseButton variant='primary'>ViewHome View</UI.BaseButton>
+         <UI.BaseInput/>
+
+      </UI.BaseMain>
       <UI.BaseFooter />
    </div>
    )

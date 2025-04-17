@@ -8,20 +8,23 @@ import * as Hooks from '@/hooks';
 import { BaseMainWrapper } from './BaseMain.styled';
 
 
-interface BaseMainProps { }
+interface BaseMainProps {
+   children?: React.ReactNode;
+ }
 
 /**
  * USAGE: BaseMain description to complete.
  * @example
  * <BaseMain /> 
  */
-const BaseMain: FC<BaseMainProps> = () => {
+const BaseMain: FC<BaseMainProps> = ( props ) => {
 
    // Hooks.useGloblaEvent('click',()=> console.log('click event'));
 
    return(
    <BaseMainWrapper data-testid="BaseMain">
       BaseMain Component
+      { props.children }
    </BaseMainWrapper>
    );
 

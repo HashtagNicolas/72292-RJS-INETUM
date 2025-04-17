@@ -8,21 +8,25 @@ import * as Hooks from '@/hooks';
 import { BaseButtonWrapper } from './BaseButton.styled';
 
 
-interface BaseButtonProps { }
+interface BaseButtonProps { 
+   children?: React.ReactNode;
+   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+   disabled?: boolean;
+   variant?: 'primary' | 'danger';
+   size?: 'small' | 'medium' | 'large';
+}
 
 /**
  * USAGE: BaseButton description to complete.
  * @example
  * <BaseButton /> 
  */
-const BaseButton: FC<BaseButtonProps> = () => {
+const BaseButton: FC<BaseButtonProps> = (props) => {
 
    // Hooks.useGloblaEvent('click',()=> console.log('click event'));
 
    return(
-   <BaseButtonWrapper data-testid="BaseButton">
-      BaseButton Component
-   </BaseButtonWrapper>
+      <BaseButtonWrapper data-testid="BaseButton" {...props} />
    );
 
 }
