@@ -1,5 +1,6 @@
 import React, { Component, FC, useEffect } from 'react';
 import { BaseHeaderWrapper } from './BaseHeader.styled';
+import { useTime } from '@/hooks';
 
 interface BaseHeaderProps {
    children: React.ReactNode;
@@ -65,31 +66,6 @@ class BaseHeaderClass extends Component<BaseHeaderProps> {
    }
 }
 
-/**
- * @description Custom Hook to get user's local time
- * @returns User's local time
- * @example
- * const time = useTime();
- */
-const useTime = () => {
-   // Custom Hooks - permette de refactoriser le code
-   // et de réutiliser la logique
-   const [time, setTime] = React.useState(new Date().toTimeString().split(' ')[0]);
-
-   useEffect(() => {
-
-      const interval = setInterval(() => {
-         setTime(new Date().toTimeString().split(' ')[0]);
-      }, 1000);
-
-      return () => { // Cleanup function is called before the component is unmounted
-         clearInterval(interval);
-      };
-
-   }, []);
-
-   return time;
-}
 
 const BaseHeader: FC<BaseHeaderProps> = ({children}) => {
    /**
