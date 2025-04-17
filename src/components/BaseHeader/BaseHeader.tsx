@@ -1,7 +1,6 @@
 import React, { Component, FC, useEffect } from 'react';
 import { BaseHeaderWrapper } from './BaseHeader.styled';
-import { useTime } from '@/hooks';
-import { useGlobalEvent } from '@/hooks';
+import { useGlobalEvent, useGlobalKeydown, useOnlineStatus, useTime } from '@/hooks';
 
 interface BaseHeaderProps {
    children: React.ReactNode;
@@ -80,9 +79,16 @@ const BaseHeader: FC<BaseHeaderProps> = ({ children }) => {
       console.log('resize event');  
    });
 
+   const onlineStatus = useOnlineStatus();
+
+   useGlobalKeydown('Enter', () => {
+      console.log('Enter key pressed');
+   }, 'ctrlKey');
+
    return (
       <BaseHeaderWrapper data-testid="BaseHeader">
          <h1>{children}</h1><h2>{time}</h2>
+         <h3>{onlineStatus ? 'Online' : 'Offline'}</h3>
       </BaseHeaderWrapper>
    );
 }

@@ -6,3 +6,21 @@
  * @param callback - The function to execute when the key is pressed.
  * @param options - Contextual keys such as ('ctrl', 'alt', 'shift).
  */
+
+import { useGlobalEvent } from './use-global-event.hook';
+ 
+export const useGlobalKeydown = (
+  key: string,
+  callback: () => void,
+  options?: 'ctrlKey' | 'shiftKey' | 'altKey'
+) => {
+  useGlobalEvent('keydown', (evt) => {
+    const event = evt as KeyboardEvent;
+
+    if ( event.key === key && ( options ? event[options] === true:true) ) {
+      callback();
+    }
+
+  });
+};
+ 
