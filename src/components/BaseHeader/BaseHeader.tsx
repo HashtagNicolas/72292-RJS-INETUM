@@ -1,22 +1,26 @@
-import React, { Component, FC } from 'react';
+import React, { Component /* , FC */ } from 'react';
 import { BaseHeaderWrapper } from './BaseHeader.styled';
 
-interface BaseHeaderProps {}
+interface BaseHeaderProps {
+   children: React.ReactNode;
+}
 
 /**
  * USAGE: BaseHeader description to complete.
  * @example
  * <BaseHeader /> 
  */
-class BaseHeader extends Component{
+class BaseHeader extends Component<BaseHeaderProps> {
+   static displayName = 'BaseHeader';
+   
    constructor(props: BaseHeaderProps) {
       super(props);
    }
-   
+
    render() {
       return (
          <BaseHeaderWrapper data-testid="BaseHeader">
-            BaseHeader Component
+           <h1>{this.props.children}</h1>
          </BaseHeaderWrapper>
       );
    }
