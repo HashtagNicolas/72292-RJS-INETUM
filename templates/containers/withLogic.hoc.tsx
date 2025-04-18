@@ -5,7 +5,6 @@ import { FC } from 'react';
 // Add any necessary imports here
 
 /* Local Imports */
-import './TemplateName.style.css';
 import { TemplateNameProps } from './TemplateName.types';
 import { useLogic } from "./useLogic.hook";
 
