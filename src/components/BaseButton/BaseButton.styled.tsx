@@ -18,14 +18,14 @@ export const BaseButtonWrapper = styled.button<BaseButtonProps>`
     color: white;
     margin: 5px;
     background-color: ${(props) => props.variant === 'primary' ? '#007bff' : '#dc3545'};
-    transform: scale(1);
+    transform: scale(1) translateZ(0);
     transition: transform 0.2s ease-in-out;
 
     &:hover {
-        transform: scale(1.05);
+        transform: scale(1.05)  translateZ(0);
     }
     &:active {
-        transform: scale(0.95);
+        transform: scale(0.95)  translateZ(0);
     }
     &:disabled {
         background-color: #ccc;
