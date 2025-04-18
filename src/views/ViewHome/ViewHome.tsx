@@ -48,6 +48,7 @@ const Carousel = () => {
    useEffect(() => {
       images.forEach((image) => preload(image.source,{"as": "image"}));
    },[images]);
+   
    const { previous, next, index, currentValue } = Hooks.useArrayNavigation(
       images
    ) as ReturnObject;
