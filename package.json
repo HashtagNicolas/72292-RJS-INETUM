@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:api": "json-server --watch ./data/db.json --port 5050",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
@@ -15,8 +16,10 @@
     "@emotion/styled": "^11.14.0",
     "@reduxjs/toolkit": "^2.6.1",
     "@uidotdev/usehooks": "^2.4.1",
+    "axios": "^1.8.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.55.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.6.12",
@@ -38,6 +41,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.12.0",
     "generate-react-cli": "^8.4.9",
+    "json-server": "^1.0.0-beta.3",
     "storybook": "^8.6.12",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
