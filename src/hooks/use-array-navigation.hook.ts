@@ -9,9 +9,9 @@
  * @returns {Object} - Un objet contenant l'"index" actuel et la valeur à l'index actuel, une fonction pour aller à l'élément précédent ("previous") et une fonction pour aller à l'élément suivant ("next").
  */
 
-import { useState } from 'react';
+import {useState } from 'react';
 
-type ReturnObject = {
+export type ReturnObject = {
     index: number;
     currentValue: unknown;
     previous: () => void;
@@ -26,10 +26,6 @@ export const useArrayNavigation = (
         index:initialIndex,
         currentValue:array[initialIndex]
     });
-
-    if (array.length === 0 || !Array.isArray(array)) return;
-    if (!Number.isInteger(initialIndex) || initialIndex > array.length - 1)
-        return;
 
     const next = () => {
         const increment = state.index + 1;
@@ -50,6 +46,10 @@ export const useArrayNavigation = (
             currentValue:array[nextIndex]
         }));
     };
+
+    if (array.length === 0 || !Array.isArray(array)) return;
+    if (!Number.isInteger(initialIndex) || initialIndex > array.length - 1)
+        return;
 
     const payload: ReturnObject = {
         index: state.index,
