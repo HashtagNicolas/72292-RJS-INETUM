@@ -31,19 +31,15 @@ export const useArrayNavigation = (
     return;
 
   const next = () => {
-    // vérifier que l'incrément sur l'index ne dépasse pas array.length
     if (currentIndex + 1 >= array.length) {
       setCurrentIndex(0);
-      // si ca dépasse revenir à l'index 0
     } else {
       setCurrentIndex(currentIndex + 1);
     }
     setCurrentValue(array[currentIndex]);
-    // set le current index et la current value
   };
 
   const previous = () => {
-    // vérifier que le décrément sur l'index n'est pas inférieur à 0
     if (currentIndex - 1 < 0) {
       setCurrentIndex(array.length - 1);
     } else {
