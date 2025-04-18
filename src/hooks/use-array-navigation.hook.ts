@@ -32,7 +32,7 @@ export const useArrayNavigation = (
 
   const next = () => {
     // vérifier que l'incrément sur l'index ne dépasse pas array.length
-    if (currentIndex + 1 > array.length) {
+    if (currentIndex + 1 >= array.length) {
       setCurrentIndex(0);
       // si ca dépasse revenir à l'index 0
     } else {

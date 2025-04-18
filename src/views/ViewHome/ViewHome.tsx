@@ -1,5 +1,6 @@
 /* Global Imports */
 import { FC } from 'react';
+import styled from '@emotion/styled';
 
 /* Application Level Imports */
 import * as UI from '@/components';
@@ -13,11 +14,8 @@ interface ViewHomeProps {}
 
 const ViewHome: FC<ViewHomeProps> = () => {
 
-
-
   Hooks.useDocumentTitle('ViewHome View');
   Hooks.useFavicon('https://www.inetum.com/themes/custom/web_ui/favicon.ico');
-
   const { speak } = Hooks.useSpeechSynthesis('Bonjour React');
 
   return (
@@ -49,16 +47,29 @@ const Carousel = () => {
      images
    ) as ReturnObject;
    return (
-      <>
-      <hr />
-      <img src={(currentValue as { source: string }).source} />
-      <button onClick={previous}>Previous</button>
-      <code>
-        {index}/{images.length}
-      </code>
-      <button onClick={next}>Next</button>
-      </>
+      <CarouselWrapper>
+         <hr />
+         <img src={(currentValue as { source: string }).source} />
+         <UI.BaseButton onClick={previous}>Previous</UI.BaseButton>
+         <code>
+         {index + 1}/{images.length}
+         </code>
+         <UI.BaseButton onClick={next}>Next</UI.BaseButton>
+      </CarouselWrapper>
    )
 }
+
+const CarouselWrapper= styled.div`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
+   width: 100%;
+   height: 100%;
+   background-color: #f5f5f5;
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
 
 export default ViewHome;
