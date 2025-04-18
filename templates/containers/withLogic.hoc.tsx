@@ -10,7 +10,7 @@ import { useLogic } from "./useLogic.hook";
 
 export const withLogic = (Component:FC<TemplateNameProps>) => {
 
-    return ((props:object) => {
+    return (props:object) => {
         const logic = useLogic();
         return <Component logic={logic} {...props}/>
     }
