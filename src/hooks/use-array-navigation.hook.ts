@@ -22,13 +22,6 @@ export const useArrayNavigation = (
     initialIndex: number = 0
 ): ReturnObject | void => {
 
-    /* 
-    const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
-    const [currentValue, setCurrentValue] = useState<unknown>(
-        array[initialIndex]
-    ); 
-    */
-
     const [state,setState] = useState({
         index:initialIndex,
         currentValue:array[initialIndex]
@@ -42,10 +35,6 @@ export const useArrayNavigation = (
         const increment = state.index + 1;
         const nextIndex =  increment >= array.length ? 0 :increment;
 
-        /* 
-        setCurrentIndex(nextIndex);
-        setCurrentValue(array[nextIndex]); 
-        */
         setState((/* prevState */) => ({
             index:nextIndex,
             currentValue:array[nextIndex]
@@ -56,10 +45,6 @@ export const useArrayNavigation = (
         const decrement = state.index - 1;
         const nextIndex = decrement < 0 ? array.length - 1 :decrement;
 
-        /* 
-        setCurrentIndex(nextIndex);
-        setCurrentValue(array[nextIndex]); 
-        */
         setState((/* prevState */) => ({
             index:nextIndex,
             currentValue:array[nextIndex]
