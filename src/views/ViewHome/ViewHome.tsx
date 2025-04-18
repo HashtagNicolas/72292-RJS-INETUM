@@ -46,6 +46,10 @@ const Carousel = () => {
     const { previous, next, index, currentValue } = Hooks.useArrayNavigation(
      images
    ) as ReturnObject;
+
+   Hooks.useGlobalKeydown('ArrowLeft', previous);
+   Hooks.useGlobalKeydown('ArrowRight', next);
+   
    return (
       <CarouselWrapper>
          <hr />

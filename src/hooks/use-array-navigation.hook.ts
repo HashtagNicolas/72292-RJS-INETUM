@@ -12,46 +12,65 @@
 import { useState } from 'react';
 
 type ReturnObject = {
-  index: number;
-  currentValue: unknown;
-  previous: () => void;
-  next: () => void;
+    index: number;
+    currentValue: unknown;
+    previous: () => void;
+    next: () => void;
 };
 export const useArrayNavigation = (
-  array: unknown[],
-  initialIndex: number = 0
+    array: unknown[],
+    initialIndex: number = 0
 ): ReturnObject | void => {
-  const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
-  const [currentValue, setCurrentValue] = useState<unknown>(
-    array[initialIndex]
-  );
 
-  if (array.length === 0 || !Array.isArray(array)) return;
-  if (!Number.isInteger(initialIndex) || initialIndex > array.length - 1)
-    return;
+    /* 
+    const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
+    const [currentValue, setCurrentValue] = useState<unknown>(
+        array[initialIndex]
+    ); 
+    */
 
-  const next = () => {
-    if (currentIndex + 1 >= array.length) {
-      setCurrentIndex(0);
-    } else {
-      setCurrentIndex(currentIndex + 1);
-    }
-    setCurrentValue(array[currentIndex]);
-  };
+    const [state,setState] = useState({
+        index:initialIndex,
+        currentValue:array[initialIndex]
+    });
 
-  const previous = () => {
-    if (currentIndex - 1 < 0) {
-      setCurrentIndex(array.length - 1);
-    } else {
-      setCurrentIndex(currentIndex - 1);
-    }
-    setCurrentValue(array[currentIndex]);
-  };
-  const payload: ReturnObject = {
-    index: currentIndex,
-    currentValue,
-    next,
-    previous,
-  };
-  return payload;
+    if (array.length === 0 || !Array.isArray(array)) return;
+    if (!Number.isInteger(initialIndex) || initialIndex > array.length - 1)
+        return;
+
+    const next = () => {
+        const increment = state.index + 1;
+        const nextIndex =  increment >= array.length ? 0 :increment;
+
+        /* 
+        setCurrentIndex(nextIndex);
+        setCurrentValue(array[nextIndex]); 
+        */
+        setState((/* prevState */) => ({
+            index:nextIndex,
+            currentValue:array[nextIndex]
+        }));
+    };
+
+    const previous = () => {
+        const decrement = state.index - 1;
+        const nextIndex = decrement < 0 ? array.length - 1 :decrement;
+
+        /* 
+        setCurrentIndex(nextIndex);
+        setCurrentValue(array[nextIndex]); 
+        */
+        setState((/* prevState */) => ({
+            index:nextIndex,
+            currentValue:array[nextIndex]
+        }));
+    };
+
+    const payload: ReturnObject = {
+        index: state.index,
+        currentValue:state.currentValue,
+        next,
+        previous,
+    };
+    return payload;
 };
