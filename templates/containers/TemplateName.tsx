@@ -14,7 +14,7 @@ type FormInputs = {
    exampleRequired: string
  }
 
-const TemplateName: FC<TemplateNameProps> = () => {
+const TemplateName: FC<TemplateNameProps> = ({logic}) => {
 
    /**
     * @see https://react-hook-form.com/get-started
