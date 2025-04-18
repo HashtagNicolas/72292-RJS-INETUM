@@ -25,6 +25,8 @@ const BaseButton: FC<BaseButtonProps> = (props) => {
 
    // Hooks.useGloblaEvent('click',()=> console.log('click event'));
 
+   console.table(props)
+
    return(
       <BaseButtonWrapper data-testid="BaseButton" {...props} />
    );
@@ -38,7 +40,7 @@ const BaseButtonMemo = React.memo(BaseButton, (prevProps, nextProps) => {
    return false if props are not equal
    */
    console.log(prevProps, nextProps)
-   return true;
+   return prevProps.onClick === nextProps.onClick;
 });
 BaseButtonMemo.displayName = 'BaseButton Memoized';
 
