@@ -79,9 +79,9 @@ const Time = () => {
 
 const BaseHeader: FC<BaseHeaderProps> = ({ children }) => {
 
-   useGlobalEvent( 'click', () => {
+   /* useGlobalEvent( 'click', () => {
       console.log('resize event');  
-   });
+   }); */
 
    const onlineStatus = useOnlineStatus();
 

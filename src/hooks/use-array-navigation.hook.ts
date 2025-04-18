@@ -6,8 +6,56 @@
  * Il retourne l'index actuel, une fonction pour aller à l'élément précédent ("previous") et une fonction pour aller à l'élément suivant ("next").
  * @param {Array} array - Le tableau d'éléments à naviguer.
  * @param {number} initialIndex - L'index initial de l'élément sélectionné.
- * @returns {Object} - Un objet contenant l'"index" actuel, une fonction pour aller à l'élément précédent ("previous") et une fonction pour aller à l'élément suivant ("next").
+ * @returns {Object} - Un objet contenant l'"index" actuel et la valeur à l'index actuel, une fonction pour aller à l'élément précédent ("previous") et une fonction pour aller à l'élément suivant ("next").
  */
 
-export const useArrayNavigation = (array: any[], initialIndex?: number) => {
-}
+import { useState } from 'react';
+
+type ReturnObject = {
+  index: number;
+  currentValue: unknown;
+  previous: () => void;
+  next: () => void;
+};
+export const useArrayNavigation = (
+  array: unknown[],
+  initialIndex: number = 0
+): ReturnObject | void => {
+  const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
+  const [currentValue, setCurrentValue] = useState<unknown>(
+    array[initialIndex]
+  );
+
+  if (array.length === 0 || !Array.isArray(array)) return;
+  if (!Number.isInteger(initialIndex) || initialIndex > array.length - 1)
+    return;
+
+  const next = () => {
+    // vérifier que l'incrément sur l'index ne dépasse pas array.length
+    if (currentIndex + 1 > array.length) {
+      setCurrentIndex(0);
+      // si ca dépasse revenir à l'index 0
+    } else {
+      setCurrentIndex(currentIndex + 1);
+    }
+    setCurrentValue(array[currentIndex]);
+    // set le current index et la current value
+  };
+
+  const previous = () => {
+    // vérifier que le décrément sur l'index n'est pas inférieur à 0
+    if (currentIndex - 1 < 0) {
+      setCurrentIndex(array.length - 1);
+    } else {
+      setCurrentIndex(currentIndex - 1);
+    }
+    setCurrentValue(array[currentIndex]);
+  };
+  const payload: ReturnObject = {
+    index: currentIndex,
+    currentValue,
+    next,
+    previous,
+  };
+  return payload;
+};
